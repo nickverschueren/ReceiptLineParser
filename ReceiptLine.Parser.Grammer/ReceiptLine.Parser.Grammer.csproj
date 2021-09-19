@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Antlr4 Include="ReceiptLineLexer.g4">
+      <Package>ReceiptLine.Parser</Package>
+      <Visitor>true</Visitor>
+      <Error>false</Error>
+      <Listener>true</Listener>
+      <AntOutDir>..\ReceiptLine.Parser\generated</AntOutDir>
+    </Antlr4>
+    <Antlr4 Include="ReceiptLineParser.g4">
+      <Package>ReceiptLine.Parser</Package>
+      <Visitor>true</Visitor>
+      <Error>false</Error>
+      <Listener>true</Listener>
+      <AntOutDir>..\ReceiptLine.Parser\generated</AntOutDir>
+    </Antlr4>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.2" />
+    <PackageReference Include="Antlr4BuildTasks" Version="8.16.0" />
+  </ItemGroup>
+
+</Project>
