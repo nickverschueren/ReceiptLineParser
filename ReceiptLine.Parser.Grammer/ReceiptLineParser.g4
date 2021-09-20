@@ -15,7 +15,9 @@ lines
 	;
 
 line
-	: WS? columns WS?
+	: CUTPAPER
+	| HORIZONTALRULE
+	| WS? columns WS?
 	;
 
 columns

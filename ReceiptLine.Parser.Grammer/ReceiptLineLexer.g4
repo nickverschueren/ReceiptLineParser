@@ -48,6 +48,22 @@ CHARS
 	: CHAR+
 	;
 
+CUTPAPER
+	: WS? EQUAL+ WS?
+	;
+
+HORIZONTALRULE
+	: WS? MINUS+ WS?
+	;
+
+fragment MINUS
+	: '-'
+	;
+
+fragment EQUAL
+	: '='
+	;
+
 fragment KEY
 	: WORD
 	| WORD ALPHANUMERIC
