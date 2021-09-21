@@ -11,7 +11,7 @@ document
 	;
 
 lines
-	: (line NEWLINE)* line?
+	: (line? NEWLINE)* line?
 	;
 
 line

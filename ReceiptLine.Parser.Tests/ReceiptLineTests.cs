@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Antlr4.Runtime;
 using Shouldly;
 using Xunit;
@@ -15,10 +16,10 @@ namespace ReceiptLine.Parser.Tests
         {
             var errorListener = new ErrorListener(name);
             var streamLength = (int)stream.Length;
-            ReceiptLineParser.DocumentContext content;
+            ReceiptLineParser.FileContext content;
 
             using (stream)
-            using (var fileStream = new StreamReader(stream))
+            using (var fileStream = new StreamReader(stream, Encoding.Default, false))
             {
                 var inputStream = new AntlrInputStream(fileStream);
 
@@ -29,10 +30,11 @@ namespace ReceiptLine.Parser.Tests
                 parser.RemoveErrorListeners();
                 parser.AddErrorListener(errorListener);
 
-                content = parser.document();
+                content = parser.file();
             }
 
             errorListener.SyntaxErrors.ShouldBeEmpty($"Syntax errors:{Environment.NewLine}{string.Join(Environment.NewLine, errorListener.SyntaxErrors)}");
+            content.exception.ShouldBeNull();
             content.Start.StartIndex.ShouldBe(0);
             content.Stop.StopIndex.ShouldBe(streamLength - 1);
         }

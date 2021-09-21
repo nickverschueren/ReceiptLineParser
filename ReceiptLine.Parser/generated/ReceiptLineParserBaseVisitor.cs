@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Development\ReceiptLineParser\ReceiptLine.Parser.Grammer\ReceiptLineParser.g4 by ANTLR 4.9.2
+// Generated from C:\Users\nickv\source\repos\ReceiptLineParser\ReceiptLine.Parser.Grammer\ReceiptLineParser.g4 by ANTLR 4.9.2
 
 // Unreachable code detected
 #pragma warning disable 0162
